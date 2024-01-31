@@ -4,56 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M1C1 CSS Grid Assignment</title>
+    <script src="https://kit.fontawesome.com/4684956e0c.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
 
-    <style>
-        .gridOne {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
+    <link rel="stylesheet" href="M1C1 CSS Grid Assignment.css">
 
-        .gridTwo {
-            display: grid;
-            grid-template-columns: 1fr 1fr 2fr;
-        }
 
-        .day {
-            background-color: red;
-        }
-
-        .month {
-            background-color: blue;
-        }
-
-        .year {
-            background-color: yellow;
-        }
-
-        .gridThree {
-            display: grid;
-            grid-template-rows: 1fr 3fr;
-            width: 500px;
-            height: 300px;
-        }
-
-        .image img {
-            width: 500px;
-            height: 225px;
-            object-fit: cover;
-        }
-
-        .gridFour {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            width: 500px;
-            background-color: green;
-        }
-
-        #second-div {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-    </style>
 </head>
 <body>
     <div class="gridOne">
@@ -61,13 +17,15 @@
         <p style="color: blue;">My Fantastic Content</p>
     </div>
 
+    <br><br>
+
     <div class="gridTwo">
         <div class="day">
-            <p>Today is Tuesday</p>
+            <p>Today is Wednesday, 31st</p>
         </div>
 
         <div class="month">
-            <p>January 30</p>
+            <p>of January</p>
         </div>
 
         <div class="year">
@@ -75,35 +33,49 @@
         </div>
     </div>
 
+    <br><br>
+
     <div class="gridThree">
         <div class="text">
-            <p>This is the image that I chose</p>
+            <p>Here is a beautiful picture of Zarautz!</p>
         </div>
 
-        <div class="image">
-            <img src="https://images.unsplash.com/photo-1439405326854-014607f694d7?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <div class="picture">
+            <img src="https://images.unsplash.com/photo-1576867718344-08a362a08bdd?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zarautz">
         </div>
     </div>
+
+    <br><br>
 
     <div class="gridFour">
         <div class="description">
-            <p>This is some text</p>
+            <p>This is the first paragraph.</p>
         </div>
 
         <div id="second-div">
-            <p>And this is some more</p>
-            <p>And this too</p>
+            <p>And this is the second.</p>
+            <p>And this, the third.</p>
         </div>
     </div>
 
+    <br><br>
+
     <div class="gridFive">
         <div class="second-description">
-            <p>Here are some nice images!</p>     
+            <p>Another couple of beautiful pictures of the Basque Country:</p>     
         </div>
         <div id="images">
-            <img src="https://unsplash.com/photos/_TuI8tZHlk4" alt="">
-            <img src="https://unsplash.com/photos/qC117ahi-mE" alt="">
+            <img src="https://images.unsplash.com/photo-1576867717045-2914096c4527?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zumaia">
+            <img src="https://images.unsplash.com/photo-1606121241422-9aa5f461a107?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="La_Rhune">
         </div>
     </div>
+
+    <br><br>
+
+    <div class="gridSix">
+        <i class="fa-solid fa-jet-fighter-up"></i>
+        <p>This is a cool 80s Google font!</p>
+    </div>
+
 </body>
 </html>
