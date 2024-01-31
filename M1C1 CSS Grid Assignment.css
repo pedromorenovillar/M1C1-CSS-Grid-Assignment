@@ -1,11 +1,13 @@
 .gridOne {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px; /* I've added this margin in all main grids to have better visibility */
 }
 
 .gridTwo {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
+    margin-bottom: 20px;
 }
 
 .day {
@@ -25,6 +27,7 @@
     grid-template-rows: 1fr 3fr;
     width: 500px;
     height: 300px;
+    margin-bottom: 20px;
 }
 
 .text {
@@ -46,6 +49,7 @@
     grid-template-rows: 1fr 1fr;
     width: 500px;
     background-color: green;
+    margin-bottom: 20px;
 }
 
 #second-div {
@@ -58,15 +62,8 @@
     grid-template-rows: 1fr 1fr;
     width: 500px;
     background-color: green;
+    margin-bottom: 20px;
 }
-
-/* 
-These instructions seem a bit contradictory to me:
-"The first picture should be twice as wide as the second."
-"[...] try making each 200 pixels tall and wide."
-
-In the end I followed the example and kept the same width for both images, even though I set the first column of the grid to be twice as wide as the second.
-*/
 
 #images {
     display: grid;
@@ -78,6 +75,29 @@ In the end I followed the example and kept the same width for both images, even 
     height: 200px;
     object-fit: cover;
 }
+
+/* 
+These instructions seem a bit contradictory to me:
+"The first picture should be twice as wide as the second."
+"[...] try making each 200 pixels tall and wide."
+
+In the end I followed the example and kept the same width for both images, even though I set the first column of the grid to be twice as wide as the second.
+My other option would have been using the commented code below (lines 88-98)
+*/
+
+/* #images img:nth-child(1) {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+#images img:nth-child(2) {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+} */
+
+
 
 .gridSix {
     display: grid;
