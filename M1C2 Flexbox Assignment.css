@@ -109,6 +109,7 @@
     width: 500px;
     display: flex;
     justify-content: space-between;
+    background-color: #f1f1f1;
 }
 
 .flexSeven > .one {
@@ -137,7 +138,7 @@
     background-color: #d6d6d6;
 }
 
-/* I've added background-color: #d6d6d6; in divs two and four to improve visibility */
+/* I've added background-color: #f1f1f1; in the container and background-color: #d6d6d6; in divs two and four to improve visibility */
 
 /* Flexbox 8 */
 
