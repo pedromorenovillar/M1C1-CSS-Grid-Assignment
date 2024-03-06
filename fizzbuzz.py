@@ -11,7 +11,6 @@ For extra credit make it able to pass in an arbitrary max of value.
 - Math operators
 
 """
-import math
 def fizzbuzz(max_value):
  for num in range(1, (max_value+1)):
    if num % 3 == 0 and num % 5 == 0:
