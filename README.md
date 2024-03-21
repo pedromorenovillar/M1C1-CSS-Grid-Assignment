@@ -6,3 +6,4 @@ Code for the checkpoints of a Full Stack Development course.
 [6/3/2024] Created a folder to store the checkpoint 4 file; created fizzbuzz file.<br>
 [11/3/2024] Created a checkpoint 5 file.<br>
 [12/3/2024] Moved the checkpoint 5 to its storage folder.<br>
+[21/3/2024] Created a folder to store the checkpoint 6 files.<br>
