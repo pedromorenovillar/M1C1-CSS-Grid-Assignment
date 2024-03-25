@@ -7,3 +7,4 @@ Code for the checkpoints of a Full Stack Development course.
 [11/3/2024] Created a checkpoint 5 file.<br>
 [12/3/2024] Moved the checkpoint 5 to its storage folder.<br>
 [21/3/2024] Created a folder to store the checkpoint 6 files.<br>
+[25/3/2024] Updated M3C6 folder with completed checkpoint files.<br>
