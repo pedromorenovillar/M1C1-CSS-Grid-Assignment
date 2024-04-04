@@ -11,7 +11,10 @@ function myFunction (arg1, arg2, arg3, arg4) {
     var arg3 = arg3 || 0;
     var arg4 = arg4 || 0;
     
-    if (typeof arg1 !== 'number' || typeof arg2 !== 'number' || typeof arg3 !== 'number' || typeof arg4 !== 'number') {
+    if (typeof arg1 !== 'number' ||
+        typeof arg2 !== 'number' ||
+        typeof arg3 !== 'number' ||
+        typeof arg4 !== 'number') {
         console.log('Solo se admiten números')
     } else {
         result = (arg1 + arg2) * (arg3 + arg4)
