@@ -31,3 +31,9 @@ function sumaMultiplicacion (arg1, arg2, arg3, arg4) {
         }
     }
 }
+
+sumaMultiplicacion(1,2,3,4)
+sumaMultiplicacion(5,5,3,4)
+sumaMultiplicacion(5,5,1,4)
+sumaMultiplicacion(5,5,1,'b')
+sumaMultiplicacion(5,5,1)
