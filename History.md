@@ -7,7 +7,7 @@ layout:
   outline:
     visible: false
   pagination:
-    visible: trfalseue
+    visible: false
 ---
 
 Code for the checkpoints of a Full Stack Development course.<br>
