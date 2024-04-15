@@ -1,6 +1,6 @@
 # Índice
 
-* [➿ ¿Qué tipo de bucles hay en JavaScript?](que-tipo-de-bucles-hay-en-javascript.md)
+* [➿ ¿Qué tipo de bucles hay en JavaScript?](1-que-tipo-de-bucles-hay-en-javascript.md)
 * [❓ ¿Cuáles son las diferencias entre const, let y var?](cuales-son-las-diferencias-entre-const-let-y-var.md)
 * [➡️ ¿Qué es una función de flecha?](que-es-una-funcion-de-flecha.md)
 * [🏗️ ¿Qué es la deconstrucción de variables?](que-es-la-deconstruccion-de-variables.md)
