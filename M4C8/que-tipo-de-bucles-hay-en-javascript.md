@@ -27,7 +27,7 @@ Los bucles en programación son estructuras de control que nos permiten **repeti
 
 
 
-<figure><img src=".gitbook/assets/bucle_sencillo (3).png" alt=""><figcaption><p>Diagrama básico de un bucle</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/bucle_sencillo (3).png" alt=""><figcaption><p>Diagrama básico de un bucle</p></figcaption></figure>
 
 
 
@@ -43,7 +43,7 @@ Un ejemplo sencillo de la vida real: imaginemos que nos hemos quedado sin manzan
 
 
 
-<figure><img src=".gitbook/assets/bucle_manzanas (3).png" alt=""><figcaption><p>Diagrama del bucle de ejemplo</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/bucle_manzanas (3).png" alt=""><figcaption><p>Diagrama del bucle de ejemplo</p></figcaption></figure>
 
 
 
