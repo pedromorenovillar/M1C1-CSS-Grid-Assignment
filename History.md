@@ -1,4 +1,4 @@
----
+<!-- ---
 layout:
   title:
     visible: false
@@ -8,7 +8,7 @@ layout:
     visible: false
   pagination:
     visible: false
----
+--- -->
 
 Code for the checkpoints of a Full Stack Development course.<br>
 [9/2/2024] Created a folder to store the checkpoint 1 files; created checkpoint 2 files.<br>
