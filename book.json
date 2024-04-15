@@ -1,7 +1,14 @@
 {
     "gitbook": {
       "ignore": [
-        "History.md"
+        "History.md",
+        "M1C1/",
+        "M1C2/",
+        "M2C3/",
+        "M2C4/",
+        "M3C5/",
+        "M3C6/",
+        "M4C7/"
       ]
     }
   }
