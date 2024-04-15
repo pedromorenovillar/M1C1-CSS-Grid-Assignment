@@ -1,4 +1,4 @@
-# Índice
+# 🗂️ Índice
 
 * [➿ ¿Qué tipo de bucles hay en JavaScript?](1-que-tipo-de-bucles-hay-en-javascript.md)
 * [❓ ¿Cuáles son las diferencias entre const, let y var?](2-cuales-son-las-diferencias-entre-const-let-y-var.md)

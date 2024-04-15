@@ -17,21 +17,14 @@ layout:
   pagination:
     visible: true
 ---
+
 # ➿ ¿Qué tipo de bucles hay en JavaScript?
 
 ### En qué consisten los bucles
 
 Los bucles en programación son estructuras de control que nos permiten **repetir una acción varias veces si se cumple una condición**.
 
-
-
-
-
 <figure><img src="../.gitbook/assets/bucle_sencillo (3).png" alt=""><figcaption><p>Diagrama básico de un bucle</p></figcaption></figure>
-
-
-
-
 
 Un ejemplo sencillo de la vida real: imaginemos que nos hemos quedado sin manzanas y vamos al la frutería. Tenemos la cesta de la compra en una mano necesitamos comprar 6 manzanas. Emplearíamos un bucle, es decir, una acción repetida varias veces hasta tener en la cesta el número de manzanas que necesitamos.
 
@@ -39,13 +32,7 @@ Un ejemplo sencillo de la vida real: imaginemos que nos hemos quedado sin manzan
 
 **Condición**: hasta que haya 6 manzanas
 
-
-
-
-
 <figure><img src="../.gitbook/assets/bucle_manzanas (3).png" alt=""><figcaption><p>Diagrama del bucle de ejemplo</p></figcaption></figure>
-
-
 
 ### Tipos de bucles
 
@@ -70,8 +57,6 @@ Al ejecutarse un bucle for, se dan los siguientes pasos:
 4. En caso de existir, se ejecuta la añadidura, que es una expresión que habitualmente actualiza el contador del bucle o la condición.
 5. Se repite el bucle empezando desde el punto 2.
 
-
-
 **Ejemplo 1**
 
 ```javascript
@@ -93,8 +78,6 @@ Este bucle for tradicional refleja el ejemplo inicial de las manzanas. El códig
 4. Se ejecuta la añadidura, que actualiza el contador `i` sumándole 1 mediante un [operador de incremento](https://keepcoding.io/blog/operador-de-incremento-en-javascript/#Uso\_como\_sufijo\_x).
 5. Se repite el bucle empezando desde el punto 2.
 
-
-
 Ejemplo 2
 
 ```javascript
@@ -111,15 +94,13 @@ for (i = 0; i < jugadores.length; i++) {
 */
 ```
 
-En este caso usamos un bucle for en una matriz para obtener los nombres de los jugadores del equipo.&#x20;
+En este caso usamos un bucle for en una matriz para obtener los nombres de los jugadores del equipo.
 
 ### Bucle for in
 
 El bucle for in sirve para iterar con una variable determinada por <mark style="background-color:purple;">todas las propiedades de un objeto</mark>, ejecutando la acción establecida para cada propiedad. Es particularmente útil para iterar sobre los valores de los objetos que recibimos como respuestas de servidores y APIs.
 
 Para utilizarlo, escribimos la palabra clave `for` seguida de unos paréntesis donde colocamos tres elementos: una variable que representa la propiedad por la que iterar en el objeto, la palabra clave `in` y una variable que representa al objeto. Por último, añadimos entre corchetes la acción que se ejecutará si la condición es verdadera.
-
-
 
 **Sintaxis**
 
@@ -149,8 +130,6 @@ for (var clave in usuario) {
 
 El ejemplo de arriba devuelve las claves y los valores correspondientes a cada propiedad del objeto `usuario`.
 
-
-
 Ejemplo 2
 
 ```javascript
@@ -172,8 +151,6 @@ En este caso usamos un bucle for in en una matriz para obtener los nombres de lo
 2. En este caso, la variable `jugador` es el índice de la matriz.
 3. Como el bucle for in en este caso itera por propiedades definidas por el usuario, es [recomendable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops\_and\_iteration#arrays) no utilizar un bucle for in para una matriz y usar en su lugar un [bucle for tradicional](./#bucle-for-tradicional).
 
-
-
 ### Bucle do while
 
 Este bucle se repite hasta que una determinada <mark style="background-color:purple;">condición sea falsa, ejecutándose al menos una vez</mark> puesto que la acción se sitúa **antes** de la evaluación de la condición. Para escribirlo, empleamos la palabra clave `do` seguida de la acción entre llaves. A continuación, añadimos la palabra clave `while` y, por último, la condición entre paréntesis.
@@ -185,8 +162,6 @@ do
     {acción}
 while (condición);
 ```
-
-
 
 Ejemplo
 
@@ -201,8 +176,6 @@ do {
 ```
 
 El ejemplo superior añade 100 a la variable ahorros cada vez que se ejecuta el bucle, siempre y cuando la variable sea inferior a 500.
-
-
 
 ### Bucle while
 
@@ -283,10 +256,6 @@ for (jugador in jugadores) {
 */
 ```
 
-
-
-
-
 ### Declaración break
 
 Empleamos la palabra clave `break` para terminar un bucle o una declaración switch.
@@ -310,11 +279,7 @@ for (i = 0; i < jugadores.length; i++) {
 
 En el ejemplo de arriba la palabra clave `break` termina el bucle al encontrar a Rodman, mostrando solo los dos primeros jugadores de la lista.
 
-
-
 ### Declaración continue
-
-
 
 Podemos usar la palabra clave `continue` para interrumpir una iteración del bucle si se da una condición y continuar con la siguiente iteración.
 
@@ -340,8 +305,6 @@ for (i = 0; i < jugadores.length; i++) {
 ```
 
 En el ejemplo de arriba la palabra clave `continue` interrumpe el bucle al encontrar a Rodman, **continuando con el bucle** hasta mostrar a todos los jugadores de la lista salvo a Rodman.
-
-
 
 ### Bucle forEach
 
@@ -379,18 +342,12 @@ console.log(númerosTriples) // [3,6,9,12]
 
 En el ejemplo de arriba, se usa el método `forEach` para multiplicar por tres las cifras de la matriz `números` y añadirlas a la matriz `númerosTriples`.
 
-
-
-
-
-### Vídeo de resumen explicativo
+### Vídeo de resumen
 
 {% embed url="https://www.youtube.com/watch?v=Kn06785pkJg" %}
 Introducción a los bucles (en inglés)
 {% endembed %}
 
-
-
 ### Fuentes
 
-[mdn-loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops\_and\_iteration)  | [W3Schools](https://www.w3schools.com/jsref/jsref\_foreach.asp) | [freecodecamp](https://www.freecodecamp.org/news/javascript-loops-explained-for-loop-for/)
+[mdn-loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops\_and\_iteration) | [W3Schools](https://www.w3schools.com/jsref/jsref\_foreach.asp) | [freecodecamp](https://www.freecodecamp.org/news/javascript-loops-explained-for-loop-for/)
