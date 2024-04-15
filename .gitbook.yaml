@@ -2,7 +2,6 @@ root: ./M4C8/
 
 ​structure:
   readme: 0-README.md
-  # summary: SUMMARY.md​
 
 redirects:
   previous/page: new-folder/page.md
