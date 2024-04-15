@@ -9,3 +9,4 @@ Code for the checkpoints of a Full Stack Development course.
 [21/3/2024] Created a folder to store the checkpoint 6 files.<br>
 [25/3/2024] Updated M3C6 folder with completed checkpoint files.<br>
 [05/4/2024] Updated M4C7 folder with completed checkpoint file and created wiki for M4C7 documentation.<br>
+[12/4/2024] Created a folder to store the checkpoint 8 files.<br>
