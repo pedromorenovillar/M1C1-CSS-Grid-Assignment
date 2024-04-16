@@ -109,11 +109,19 @@ let provinciaUsuario = 'Granada', ciudadUsuario = 'Salobreña';
 const nombreUsuario = 'Marco Llorente';
 ```
 
+
+
+<figure><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxfHx2YXJpZXR5fGVufDB8fHx8MTcxMzI1ODg4M3ww&#x26;ixlib=rb-4.0.3&#x26;q=85" alt="" width="375"><figcaption></figcaption></figure>
+
 ### Diferencias entre `var`, `let` y `const`
 
 
 
 Hemos visto [arriba ](2-cuales-son-las-diferencias-entre-const-let-y-var.md#como-se-crea)que al declarar una variable podemos emplear las palabras clave `var`, `let` y `const`. La palabra clave que utilicemos al declararla determinará el comportamiento y alcance de nuestra variable.
+
+### Recomendaciones de uso
+
+Debido a las características que se detallan a continuación, se recomienda usar `const` siempre que sea posible y, cuando este no sea el caso, utilizar `let`; `var` debería de evitarse en la medida de lo posible.
 
 ### Palabra clave `var`
 
@@ -141,7 +149,7 @@ console.log(saludo); // "Hola"
 var saludo;
 ```
 
-Es importante mencionar que el hoisting afecta **solo a las declaraciones**, no a las asignaciones, como vemos en este ejemplo, donde tenemos la variable saludo asignada:
+Es importante mencionar que el hoisting afecta **solo a las declaraciones**, no a las asignaciones, como vemos en este ejemplo, donde tenemos la variable saludo asignada. En este caso, JavaScript devuelve `undefined` porque reconoce que hay una variable para saludo y le asigna un espacio en la memoria, pero el hoisting no se produce con el valor asignado a la variable.
 
 ```javascript
 console.log(saludo); // undefined
@@ -164,7 +172,7 @@ if (contador > 3) {
 console.log(saludo) // "No digas hola"
 ```
 
-Para evitar problemas de hoisting, se recomienda siempre declarar todas las variables al principio de cada ámbito o alcance.
+Para evitar problemas de hoisting, se recomienda siempre declarar todas las variables al principio de cada ámbito.
 
 3. Tiene alcance local en una función.
 
@@ -249,6 +257,20 @@ if (contador > 3) {
 console.log(saludo) // Uncaught ReferenceError: saludo is not defined
 ```
 
+3. No se puede utilizar antes de declararla e inicializarla.
+
+El hoisting afecta a las variables let de forma diferente a las variables var: no se les asigna un valor `undefined`. Aunque JavaScript las detecta, muestra un error de acceso.
+
+```javascript
+console.log(saludo); // ReferenceError: Cannot access 'saludo' before initialization 
+let saludo = 'Hola';
+console.log(saludo); // 'Hola'
+```
+
+
+
+
+
 ### Palabra clave `const`
 
 
@@ -290,6 +312,18 @@ if (counter > 3) {
 
 console.log(value); // ReferenceError: value is not defined 
 ```
+
+4. No se puede utilizar antes de declararla e inicializarla.
+
+El hoisting afecta a las variables `const` de forma diferente a las variables var: no se les asigna un valor `undefined`. Aunque JavaScript las detecta, muestra un error de acceso.
+
+```javascript
+console.log(saludo); // ReferenceError: Cannot access 'saludo' before initialization 
+const saludo = 'Hola';
+console.log(saludo); // 'Hola'
+```
+
+
 
 ### Vídeos de resumen
 
