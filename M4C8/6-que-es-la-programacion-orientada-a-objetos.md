@@ -148,3 +148,14 @@ console.log(`${seniorInstructor.name} can teach: ${Instructor.canTeach(seniorIns
 ```
 
 En el último ejemplo, los nombres de los instructores hacen una llamada al objeto, mientras que el método estático `canTeach` solo hace una llamada a la clase.
+
+### Vídeo de resumen
+
+
+
+{% embed url="https://www.youtube.com/watch?v=pTB0EiLXUC8" %}
+
+{% embed url="https://www.youtube.com/watch?v=m_MQYyJpIjg" %}
+
+{% embed url="https://www.youtube.com/watch?v=SiBw7os-_zI" %}
+
