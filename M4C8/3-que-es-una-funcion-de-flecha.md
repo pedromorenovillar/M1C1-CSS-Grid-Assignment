@@ -1,6 +1,30 @@
+---
+cover: >-
+  https://images.unsplash.com/photo-1585166059782-f28143545183?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHw2fHxtYWNoaW5lfGVufDB8fHx8MTcxMzI0NTU5Nnww&ixlib=rb-4.0.3&q=85
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # ➡️ ¿Qué es una función de flecha?
 
-#### Declaración de función
+Las funciones aportan versatilidad a nuestro código, permitiéndonos básicamente añadir valores de entrada, trabajar con ellos y obtener valores de salida. Son bloques de código que funcionan como una especie de máquinas que realizan determinadas operaciones y que podemos utilizar siempre que nos haga falta.
+
+Hasta 2015, las únicas formas de escribir funciones en JavaScript eran mediante una declaración de función o una expresión de función.
+
+### Declaración de función
 
 ```javascript
 function fullName(fName, lName) {
@@ -9,7 +33,7 @@ function fullName(fName, lName) {
 fullName('Michael', 'Jordan');
 ```
 
-#### Expresión de función
+### Expresión de función
 
 ```javascript
 fullName = function (fName, lName) {
@@ -17,6 +41,8 @@ fullName = function (fName, lName) {
 }
 fullName('Michael', 'Jordan');
 ```
+
+### Función de flecha
 
 Las funciones de flecha tienen una sintaxis concisa en comparación con las declaraciones de funciones tradicionales.
 
@@ -31,7 +57,7 @@ helloWorld = () => { console.log("¡Hola mundo!"); }
 helloWorld();
 ```
 
-#### Funciones de flecha con un solo argumento
+### Funciones de flecha con un solo argumento
 
 Cuando una función tiene solo un argumento, puedes omitir los paréntesis alrededor de la lista de argumentos.
 
@@ -40,7 +66,7 @@ firstName = fname => { console.log(fname.toUpperCase()); }
 firstName('Jordan');
 ```
 
-#### Funciones de flecha con varios argumentos
+### Funciones de flecha con varios argumentos
 
 Es necesario usar paréntesis alrededor de la lista de argumentos en las funciones de flecha con varios argumentos.
 
