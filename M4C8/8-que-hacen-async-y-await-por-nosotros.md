@@ -1,146 +1,215 @@
 # ⏯️ ¿Qué hacen async y await por nosotros?
 
-En versiones antiguas de JS, los desarrolladores se enfrentaban a un problema llamado «callback hell», donde tenían que anidar todos los procesos de una actividad para asegurarse de que tenían lugar en el orden correcto debido a que JS tiene una naturaleza asíncrona.
 
-Afortunadamente, las palabras clave `async` y `await` se crearon para solucionar este problema.
+### ¿Para qué se usan async y await?
 
-La función `login` devuelve una promesa que simula el inicio de sesión del usuario con un retraso de dos segundos para imitar una operación asíncrona. La función `updateAccount` simula la actualización de la cuenta del usuario. La función `loginActivities` utiliza `async` para indicar que la función es asíncrona. Dentro de esta función, `await` hace esperar que `login()` se complete antes de ejecutar `updateAccount`.
+`async` y `await` son palabras clave que facilitan la escritura de promesas, permitiéndonos determinar el orden de ejecución de funciones en base a la resolución de promesas. Emplearlas hace que nuestro código sea más fácil de leer que con una devolución de función o una promesa al uso. Gracias a ellas también es más sencillo gestionar los errores de las promesas y solucionar los problemas en el código.
+
+### async
+
+`async` hace que una función **devuelva** una promesa. Al usarla delante de una función, indicamos a JavaScript que esta es una función asíncrona y devuelve una promesa. Escribir `async` delante de una función nos permite usar `await` dentro de esta.
+
+### Sintaxis
+
+Escribimos `async` delante del nombre de una función y la palabra clave `function`.
 
 ```javascript
-const login = () => {
-  return new Promise((resolve, reject) =>{
-    setTimeout(() => {
-      resolve('User logged in...');
-    }, 2000);
-  });
-}
-
-const updateAccount = () => {
-  return new Promise((resolve, reject) =>{
-    setTimeout(() => {
-      resolve('Updating last login...');
-    }, 2000);
-  });
-}
-
-async function loginActivities() {
-  const returnedLogin = await login(); // Que no ocurra nada hasta que login() haya terminado. Luego añade datos a returnedlogin.
-  console.log(returnedLogin);
-  const returnedUpdateAccount = await updateAccount();
-  console.log(returnedUpdateAccount);
-}
-
-loginActivities();
+async function nombre() {acción}
 ```
 
-### Cómo combinar async/await con clausuras en JavaScript
+#### Ejemplo
+
+```javascript
+async function funciónAsíncrona() {
+  console.log('Soy una función asíncrona')
+  return Promise.resolve('Resultado de la función asíncrona');
+}
+funciónAsíncrona(); // Soy una función asíncrona
+```
+`funciónAsíncrona` devuelve una promesa, por lo que podemos emplear el método `then()`.
+
+```javascript
+async function funciónAsíncrona() {
+  console.log('Soy una función asíncrona')
+  return Promise.resolve('Resultado de la función asíncrona');
+}
+funciónAsíncrona().then(function(resultado){
+  console.log(resultado)
+});
+
+// Soy una función asíncrona
+// Resultado de la función asíncrona
+```
+
+
+### await
+
+`await` hace que una función **espere** una promesa. Se escribe dentro de una función `async` para que esta espere al resultado de la operación asíncrona.
+
+### Si
+
+Escribimos `await` delante del nombre de una promesa.
+
+```javascript
+resultado = await promesa
+```
+
+#### Ejemplo
+
+En el siguiente ejemplo creamos una variable, `promesaInicial`, a la que asignamos una promesa que tarda 3 segundos en resolverse (por medio de la función setTimeout) y devuelve un mensaje.
+
+A continuación escribimos una función asíncrona añadiendo la palabra clave `async` delante del nombre de la función. Después, vinculamos ambas funciones creando la variable `resultadoInicial` y asignándola a la palabra clave `await` seguida de `promesaInicial`.
+Por último, imprimimos en la consola el resultado de `promesaInicial` y un mensaje de la funciónAsíncrona.
+
+```javascript
+let promesaInicial = new Promise(function(resolve, reject){
+  setTimeout(function (){
+    resolve('Promesa inicial resuelta')}, 2000);
+});
+
+async function funciónAsíncrona() {
+  
+  let resultadoInicial = await promesaInicial;
+  console.log(resultadoInicial)
+  console.log('Soy una función asíncrona que ha esperado una promesa')
+  return Promise.resolve('Resultado de la función asíncrona');
+}
+funciónAsíncrona();
+// Promesa inicial resuelta
+// Soy una función asíncrona que ha esperado una promesa
+```
+
+# TODO diagrama de promesa
+
+### Gestión de errores
+
+Usamos `try/catch` para gestionar los errores dentro de la función asíncrona.
+
+
+```javascript
+let promesaInicial = new Promise(function(resolve, reject){
+  const tester = false;
+  if (tester === true) {
+  setTimeout(function (){
+    resolve('Promesa inicial resuelta')}, 2000);
+  } else {
+    reject('No se ha podido resolver la promesa');
+  }
+});
+
+async function funciónAsíncrona() {
+  
+  try {
+  let resultadoInicial = await promesaInicial;
+  console.log(resultadoInicial)
+  console.log('Soy una función asíncrona que ha esperado una promesa')
+  return Promise.resolve('Resultado de la función asíncrona');
+  }
+  catch(error){
+    console.error(error);
+  }
+}
+funciónAsíncrona(); // No se ha podido resolver la promesa
+```
+
+### Operaciones asíncronas mostradas de forma síncrona
 
 Podemos combinar async/await con una `clausura` (EN: closure) en JavaScript para garantizar que todos los procesos asíncronos se hayan ejecutado antes de mostrar cualquier resultado.
 
-Una clausura es básicamente una función que se asigna a una variable y puede pasarse a otras funciones.
+Esto nos permite controlar los procesos asíncronos y mostrarlos de una forma síncrona.
 
-Para hacerlo, añadimos a la función `loginActivities` dos argumentos: inicio y actualización, lo que permite pasar las funciones `login` y `updateAccount` como argumentos al llamar la función y luego utilizarlas como clausuras dentro de loginActivities.
-
-`loginActivities` esperará a que tanto `login` como `updateAccount` se completen antes de mostrar cualquier resultado.
+Recuperemos los ejemplos de tareas domésticas empleados anteriormente:
 
 ```javascript
-const login = () => {
-  return new Promise((resolve, reject) =>{
-    setTimeout(() => {
-      resolve('User logged in...');
-    }, 4000);
-  });
-}
+const lavadoraPuesta = true;
+const panComprado = true;
+const comidaPreparada = true;
 
-const updateAccount = () => {
-  return new Promise((resolve, reject) =>{
-    setTimeout(() => {
-      resolve('Updating last login...');
-    }, 2000);
-  });
-}
-
-async function loginActivities(inicio, actualización) { // Añadimos argumentos
-  const returnedLogin = await inicio;
-  console.log(returnedLogin);
-  
-  const returnedUpdateAccount = await actualización;
-  console.log(returnedUpdateAccount);
-}
-
-loginActivities(login(), updateAccount()); // Pasamos funciones al llamar loginActivities
-```
-
-### Cómo utilizar async/await para comunicarnos con APIs externas en JavaScript
-
-Podemos usar `async/await` para gestionar múltiples solicitudes asíncronas y garantizar que los datos de distintas APIs se procesen en el orden correcto, independientemente de cuánto tiempo tarde en completarse cada solicitud. Esto es vital cuando se necesita autenticar datos.
-
-Para ello, se crea una función asíncrona, `queryApis`, que solicita la respuesta a dos APIs en un orden específico y les da formato json.
-
-```javascript
-async function queryApis() {
-  const peoplePromise = fetch('https://swapi.dev/api/people/');
-  const people = await peoplePromise.then(res => res.json()); // res = response
-  console.log(people);
-  
-  const reposPromise = fetch('https://api.github.com/users/jordanhudgens/repos');
-  const repos = await reposPromise.then(res => res.json());
-  console.log(repos) 
-}
-
-queryApis();
-```
-
-### Cómo implementar gestión de errores en una función async/await de JS
-
-Es importante implementar gestión de errores al trabajar con solicitudes de API, ya que estas pueden fallar. En los siguientes ejemplos se simula el error sustituyendo `https` por `http`.
-
-#### Opción 1: Envolver todo el bloque en try-catch
-
-Esta opción detiene el proceso y muestra 'TypeError: Failed to fetch' si falla cualquiera de las solicitudes de API. Es útil si queremos detener completamente el proceso sin ejecutar nada más, por ejemplo, si las promesas están conectadas entre sí (autenticación).
-
-```javascript
-async function queryApis() {
-  try {
-    const peoplePromise = fetch('https://swapi.dev/api/people/');
-    const people = await peoplePromise.then(res => res.json());
-    console.log(people);
-      
-    const reposPromise = fetch('http://api.github.com/users/jordanhudgens/repos');
-    const repos = await reposPromise.then(res => res.json());
-    console.log(repos);
-    } catch(err) {
-    console.log(err);
+function ponerLavadora () {
+  return new Promise(function(resolve, reject) {
+  if (lavadoraPuesta === true) {
+    resolve('¡Ropa lavada!');
+  } else {
+    reject('No has lavado la ropa...');
   }
-}
+})
+};
 
-queryApis();
+function comprarPan () {
+  return new Promise(function(resolve, reject) {
+  if (panComprado === true) {
+    resolve('¡Pan comprado!');
+  } else {
+    reject('No has comprado el pan...');
+  }
+})
+};
+
+function prepararComida () {
+  return new Promise(function(resolve, reject) {
+  if (comidaPreparada === true) {
+    resolve('¡Comida hecha!');
+  } else {
+    reject('No has preparado la comida...');
+  }
+})
+};
 ```
 
-#### Opción 2: Utilizar un bloque try-catch por cada promesa
-
-Proporciona más información sobre qué API causó el error, lo que puede ser útil para el diagnóstico. Esta opción es la más extendida en la industria, y nos sirve cuando necesitamos uno de los dos procesos aunque falle el otro.
+Podemos crear una nueva función que combine estas tres y nos muestre todos los resultados prescindiendo del método `then`.
 
 ```javascript
-async function queryApis() {
+async function tareasDomésticas () {
+  const ropaLavada = await ponerLavadora();
+  console.log(ropaLavada);
+  
+  const comidaPreparada = await prepararComida();
+  console.log(comidaPreparada);
+  
+  const panComprado = await comprarPan();
+  console.log(panComprado);
+  
+}
+tareasDomésticas();
+```
+
+### Gestión de errores en una función async/await
+
+Es recumendable utilizar un bloque try-catch por cada promesa que englobemos.
+
+Proporciona más información sobre qué función causó el error, lo que puede ser útil para el diagnóstico. Esta opción es la más extendida en la industria, y nos sirve cuando necesitamos uno de los dos procesos aunque falle el otro.
+
+```javascript
+async function tareasDomésticas () {
   try {
-    const peoplePromise = fetch('http://swapi.dev/api/people/');
-    const people = await peoplePromise.then(res => res.json()); 
-    console.log(people);
-    } catch(err) {
-    console.log(err);
-    console.log('There was an error with the SWAPI API');
-  }
+      const ropaLavada = await ponerLavadora();
+      console.log(ropaLavada);
+      } catch(error) {
+        console.log(error)
+      }
   
   try {
-    const reposPromise = fetch('https://api.github.com/users/jordanhudgens/repos');
-    const repos = await reposPromise.then(res => res.json());
-    console.log(repos);
-    } catch(err) {
-    console.log(err);
-    console.log('There was an error with the Github API');
-  }
+      const comidaPreparada = await prepararComida();
+      console.log(comidaPreparada);
+      } catch(error) {
+        console.log(error)
+      }
+  
+  try {
+      const panComprado = await comprarPan();
+      console.log(panComprado);
+      } catch(error) {
+        console.log(error)
+      }  
 }
-
-queryApis();
+tareasDomésticas();
 ```
+El código completo de las tareas y la función async está aquí.
+
+### Vídeo de resumen
+
+{% embed url="https://www.youtube.com/watch?v=9j1dZwFEJ-c" %}
+
+### Fuentes
+
+[mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) | [W3Schools](https://www.w3schools.com/js/js_async.asp) | [Programiz](https://www.programiz.com/javascript/async-await) | [Javascript.info](https://javascript.info/async-await)
