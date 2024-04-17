@@ -1,5 +1,24 @@
-# ⏯️ ¿Qué hacen async y await por nosotros?
+---
+cover: >-
+  https://images.unsplash.com/photo-1581677641984-cf14ca58c5ee?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwyfHx0cmFmZmljJTIwbGlnaHR8ZW58MHx8fHwxNzEzMzc1MjAxfDA&ixlib=rb-4.0.3&q=85
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
 
+# ⏯️ ¿Qué hacen async y await por nosotros?
 
 ### ¿Para qué se usan async y await?
 
@@ -9,7 +28,7 @@
 
 `async` hace que una función **devuelva** una promesa. Al usarla delante de una función, indicamos a JavaScript que esta es una función asíncrona y devuelve una promesa. Escribir `async` delante de una función nos permite usar `await` dentro de esta.
 
-### Sintaxis
+#### Sintaxis
 
 Escribimos `async` delante del nombre de una función y la palabra clave `function`.
 
@@ -17,7 +36,7 @@ Escribimos `async` delante del nombre de una función y la palabra clave `functi
 async function nombre() {acción}
 ```
 
-#### Ejemplo
+**Ejemplo**
 
 ```javascript
 async function funciónAsíncrona() {
@@ -26,6 +45,7 @@ async function funciónAsíncrona() {
 }
 funciónAsíncrona(); // Soy una función asíncrona
 ```
+
 `funciónAsíncrona` devuelve una promesa, por lo que podemos emplear el método `then()`.
 
 ```javascript
@@ -41,12 +61,11 @@ funciónAsíncrona().then(function(resultado){
 // Resultado de la función asíncrona
 ```
 
-
 ### await
 
 `await` hace que una función **espere** una promesa. Se escribe dentro de una función `async` para que esta espere al resultado de la operación asíncrona.
 
-### Si
+#### Sintaxis
 
 Escribimos `await` delante del nombre de una promesa.
 
@@ -54,12 +73,11 @@ Escribimos `await` delante del nombre de una promesa.
 resultado = await promesa
 ```
 
-#### Ejemplo
+**Ejemplo**
 
 En el siguiente ejemplo creamos una variable, `promesaInicial`, a la que asignamos una promesa que tarda 3 segundos en resolverse (por medio de la función setTimeout) y devuelve un mensaje.
 
-A continuación escribimos una función asíncrona añadiendo la palabra clave `async` delante del nombre de la función. Después, vinculamos ambas funciones creando la variable `resultadoInicial` y asignándola a la palabra clave `await` seguida de `promesaInicial`.
-Por último, imprimimos en la consola el resultado de `promesaInicial` y un mensaje de la funciónAsíncrona.
+A continuación escribimos una función asíncrona añadiendo la palabra clave `async` delante del nombre de la función. Después, vinculamos ambas funciones creando la variable `resultadoInicial` y asignándola a la palabra clave `await` seguida de `promesaInicial`. Por último, imprimimos en la consola el resultado de `promesaInicial` y un mensaje de la funciónAsíncrona.
 
 ```javascript
 let promesaInicial = new Promise(function(resolve, reject){
@@ -79,12 +97,11 @@ funciónAsíncrona();
 // Soy una función asíncrona que ha esperado una promesa
 ```
 
-# TODO diagrama de promesa
+## TODO diagrama de promesa
 
 ### Gestión de errores
 
 Usamos `try/catch` para gestionar los errores dentro de la función asíncrona.
-
 
 ```javascript
 let promesaInicial = new Promise(function(resolve, reject){
@@ -204,7 +221,8 @@ async function tareasDomésticas () {
 }
 tareasDomésticas();
 ```
-El código completo de las tareas y la función async está aquí.
+
+El código completo de las tareas y la función async [está aquí](sample\_code\_files/async\_tareas\_dom%C3%A9sticas.js).
 
 ### Vídeo de resumen
 
@@ -212,4 +230,4 @@ El código completo de las tareas y la función async está aquí.
 
 ### Fuentes
 
-[mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) | [W3Schools](https://www.w3schools.com/js/js_async.asp) | [Programiz](https://www.programiz.com/javascript/async-await) | [Javascript.info](https://javascript.info/async-await)
+[mdn](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async\_function) | [W3Schools](https://www.w3schools.com/js/js\_async.asp) | [Programiz](https://www.programiz.com/javascript/async-await) | [Javascript.info](https://javascript.info/async-await)
