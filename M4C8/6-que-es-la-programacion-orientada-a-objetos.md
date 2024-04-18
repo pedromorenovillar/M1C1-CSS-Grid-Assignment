@@ -20,34 +20,35 @@ layout:
 
 # 💡 ¿Qué es la programación orientada a objetos?
 
+### Definición
 
-### ¿Qué es?
+La programación orientada a objetos (POO) es un paradigma de programación que se centra en los objetos en lugar de en las funciones (programación funcional) o en secuencias lógicas (programación procedimental). La POO es el enfoque de programación más popular en el desarrollo de software moderno.
 
-La programación orientada a objetos (POO) es un paragdigma de programación que se centra en los objetos en lugar de en las funciones (programación funcional) o en secuencias lógicas (programación procedimental). La POO es el paradigma de programación más popular en el desarrollo de software moderno.
-
-La POO consiste en un sistema basado en una colección de objetos donde cada objeto contiene los datos y las funciones para utilizarlos, de tal forma que solo las funciones del objeto puedan utilizar dichos datos.
+La POO consiste en un sistema basado en una colección donde cada objeto contiene los datos y las funciones para utilizarlos, de tal forma que solo las funciones del objeto puedan emplear dichos datos.
 
 ### ¿Por qué se utiliza?
 
 La POO es el enfoque de programación más popular porque cuenta con una serie de características que proporcionan considerables ventajas al programar:
 
-  1. Es posible representar objetos complejos mediante estructuras sencillas que se pueden reproducir (clases).
-  2. Los objetos creados en un programa pueden emplearse en otro programa diferente.
-  3. El polimorfismo permite definir un comportamiento específico para las clases.
-  4. Es fácil descubrir los errores en el código, ya que las clases contienen toda la información.
-  5. Los datos están protegidos de acciones y eventos inesperados mediante encapsulación.
+1. Es posible representar objetos complejos mediante estructuras sencillas que se pueden reproducir (clases).
+2. Los objetos creados en un programa pueden emplearse en otro programa diferente.
+3. El polimorfismo permite definir un comportamiento específico para las clases.
+4. Es fácil descubrir los errores en el código, ya que las clases contienen toda la información.
+5. Los datos están protegidos de acciones y eventos inesperados mediante encapsulación.
 
 ### ¿Cómo se utiliza?
 
-En la programación orientada a objetos es importante comprender los conceptos de objeto y clase.
+En la programación orientada a objetos es importante comprender los conceptos de **objeto** y **clase**.
 
 ### Objetos
 
-Los objetos en POO son representaciones de entidades del mundo real. Cuentan con atributos (los datos del objeto) y métodos (las acciones que realiza el objeto).
+Los objetos en POO son representaciones de entidades del mundo real. Cuentan con propiedades (los datos del objeto) y métodos (las acciones que realiza el objeto).
 
-En el siguiente ejemplo creamos un objeto llamado `Toby`. Tiene los atributos color y especie, y el método onomatopeya. A continuación, ejecutamos el método del objeto.
+<figure><img src=".gitbook/assets/object (1).svg" alt=""><figcaption><p>Los objetos tienen métodos y propiedades</p></figcaption></figure>
 
-#### Ejemplo
+En el siguiente ejemplo creamos un objeto llamado `Toby`. Tiene las propiedades color y especie, y el método onomatopeya. A continuación, ejecutamos el método del objeto.
+
+**Ejemplo**
 
 ```javascript
 let Toby = {
@@ -60,11 +61,15 @@ let Toby = {
 Toby.onomatopeya(); // "¡guau!"
 ```
 
-#### Clases
+<figure><img src=".gitbook/assets/toby (1).svg" alt=""><figcaption><p>Representación de un objeto</p></figcaption></figure>
+
+### **Clases**
 
 Las clases son como un molde que define la estructura y el comportamiento de los objetos, y a partir de las cuales podemos crear (o instanciar) diferentes objetos con las mismas características.
 
-#### Cómo crear una clase
+<figure><img src=".gitbook/assets/clases (3).svg" alt=""><figcaption><p>Usamos clases para crear objetos</p></figcaption></figure>
+
+### **Cómo crear una clase**
 
 Al crear una clase, añadimos el método `constructor` para pasarle valores iniciales con la palabra clave `this`.
 
@@ -72,8 +77,8 @@ Al crear una clase, añadimos el método `constructor` para pasarle valores inic
 
 ```javascript
 class name {
-  constructor({atributo}) {
-    this.atributo = atributo
+  constructor({propiedad}) {
+    this.propiedad = propiedad
   }
 }
 ```
@@ -83,7 +88,7 @@ class name {
 ```javascript
 class Animal {
   constructor(nombre, especie, color) {
-  // Ejemplo de atributos
+  // Ejemplo de propiedades
     this.nombre = nombre;
     this.especie = especie;
     this.color = color;
@@ -97,24 +102,24 @@ class Animal {
 }
 ```
 
-#### Cómo instanciar un objeto de una clase
+### **Cómo instanciar un objeto de una clase**
 
 La `instanciación` es el proceso de crear objetos del mundo real basados en un plano de clase.
 
-Para instanciar un objeto lo asignamos a una variable con la palabra clave `new`. Añadimos los atributos entre paréntesis.
+Para instanciar un objeto lo asignamos a una variable con la palabra clave `new`. Añadimos las propiedades entre paréntesis.
 
 **Sintaxis**
 
 ```javascript
-const name = new className(atributo)
+const name = new className(propiedad)
 ```
 
-En el siguiente ejemplo creamos una clase llamada `Animal` con una serie de atributos (nombre, especie, color y sonido), y un método (onomatopeya). A continuación instanciamos dos objetos a partir de ella (Toby y Sultán) y accedemos al método `onomatopeya` del ambos.
+En el siguiente ejemplo creamos una clase llamada `Animal` con una serie de propiedades (nombre, especie, color y sonido), y un método (onomatopeya). A continuación instanciamos dos objetos a partir de ella (Toby y Sultán) y accedemos al método `onomatopeya` del ambos.
 
 ```javascript
 class Animal {
   constructor(nombre, especie, color) {
-  // Ejemplo de atributos
+  // Ejemplo de propiedades
     this.nombre = nombre;
     this.especie = especie;
     this.color = color;
@@ -134,17 +139,19 @@ let Sultán = new Animal('Sultán', 'gato', 'gris');
 Sultán.onomatopeya('miau'); // "Sultán hace miau."
 ```
 
-### Características principales
+<figure><img src=".gitbook/assets/clases_objetos (2).svg" alt=""><figcaption></figcaption></figure>
+
+### Características principales de la POO
 
 Las principales características de la programación orientada a objetos son las siguientes:
 
-#### Encapsulación
+### **Encapsulación**
 
 La encapsulación significa que la representación interna de un objeto está oculta del exterior.
 
-En el siguiente ejemplo, el atributo `_marca` está encapsulado en la clase Coche, es decir, solo puede accederse a él mediante el método `get` y modificarse con el método `set`.
+En el siguiente ejemplo, la propiedad `_marca` está encapsulado en la clase Coche, es decir, solo puede accederse a él mediante el método `get` y modificarse con el método `set`.
 
-### Ejemplo
+#### Ejemplo
 
 ```javascript
 class Coche {
@@ -167,15 +174,15 @@ miCoche.marca = 'Audi';
 console.log(miCoche.marca); // Audi
 ```
 
-#### Herencia
+<figure><img src=".gitbook/assets/encapsulacion.svg" alt=""><figcaption></figcaption></figure>
+
+### **Herencia**
 
 La herencia significa que una clase extiende sus datos y comprotamiento a otra. Para utilizar la herencia en JavaScript, al declarar una clase dependiente de otra usamos la palabra clave `extends` y el nombre de la clase original.
 
-En el siguiente ejemplo, la clase `Perro` hereda los atributos nombre y especie de la clase `Animal`, aunque cuenta con un método `onomatopeya` propio.
+En el siguiente ejemplo, la clase `Perro` hereda las propiedades nombre y especie de la clase `Animal`, aunque cuenta con un método `onomatopeya` propio.
 
-# TODO añadir esquema
-
-### Ejemplo
+#### Ejemplo
 
 ```javascript
 class Animal {
@@ -203,15 +210,15 @@ let Toby = new Perro('Toby', 'perro');
 Toby.onomatopeya('guau'); // "Toby es un perro que hace guau."
 ```
 
-#### Polimorfismo
+<figure><img src=".gitbook/assets/herencia (1).svg" alt=""><figcaption></figcaption></figure>
+
+### **Polimorfismo**
 
 El polimorfismo nos permite que métodos, objetos u operadores con el mismo nombre se ejecuten en muchos objetos y clases.
 
-En el siguiente ejemplo, la clase `Animal` tiene un constructor con los atributos especie y sonido, y un método llamado `onomatopeya`. Las subclases `Perro` y `Gato` heredan propiedades de `Animal` con la palabra clave `extends`, aunque cuentan con sus propios métodos `onomatopeya`. Por último, tenemos la función `ruido`, que toma como argumento un animal y ejecuta su función `onomatopeya` del animal correspondiente, sobrescribiendo la de `Animal`.
+En el siguiente ejemplo, la clase `Animal` tiene un constructor con las propiedades especie y sonido, y un método llamado `onomatopeya`. Las subclases `Perro` y `Gato` heredan propiedades de `Animal` con la palabra clave `extends`, aunque cuentan con sus propios métodos `onomatopeya`. Por último, tenemos la función `ruido`, que toma como argumento un animal y ejecuta su función `onomatopeya` del animal correspondiente, sobrescribiendo la de `Animal`.
 
-# TODO añadir esquema
-
-### Ejemplo
+#### Ejemplo
 
 ```javascript
 class Animal {
@@ -246,23 +253,33 @@ ruido(new Perro());
 ruido(new Gato());
 ```
 
-#### Abstracción
+<figure><img src=".gitbook/assets/polimorfismo.svg" alt="" width="356"><figcaption></figcaption></figure>
 
-La abstracción es un proceso de POO donde se ocultan los detalles de implementación complejos y solo se muestran las características esenciales de un objeto.
+### **Abstracción**
+
+La abstracción es un proceso de POO donde se ocultan los detalles de implementación complejos y solo se muestran las características esenciales de un objeto, lo que simplifica la interfaz y reduce el impacto de los cambios.
 
 Un ejemplo del mundo real sería conducir una moto: para que la moto gire a la izquierda, el conductor tiene que girar el manillar a la izquierda, no preocuparse por cómo se mueven el eje y los piñones de la moto.
 
-En el siguiente ejemplo, la clase `Vehículo` es una clase genérica con dos métodos: `arrancar` y `parar`. La clase `Moto` es una subclase de la clase `Vehículo` y supone un nivel de abstracción más específico con métodos ajustados a ese tipo de vehículo.
+En el siguiente ejemplo, la clase `Vehículo` es una clase genérica con cuatro métodos: `arrancar`, `parar`, `volar` y `flotar`. La clase `Moto` es una subclase de la clase `Vehículo` y supone un nivel de abstracción más específico con métodos ajustados a ese tipo de vehículo.
 
-### Ejemplo
+#### Ejemplo
 
 ```javascript
 class Vehículo {
   arrancar() {
-    console.log('El motor del vehículo ha arrancado');
+    console.log('El motor ha arrancado');
   }
   parar() {
-    console.log('El motor del vehículo ha parado');
+    console.log('El motor ha parado');
+  }
+  
+  volar() {
+    console.log('La nave está en el aire');
+  }
+  
+  flotar() {
+    console.log('El barco está navegando');
   }
 }
 
@@ -279,16 +296,14 @@ let miMoto = new Moto();
 miMoto.arrancar(); // "La moto se ha arrancado"
 ```
 
-### Vídeo de resumen
+<figure><img src=".gitbook/assets/abstraccion.svg" alt=""><figcaption><p>Ejemplo de abstracción y herencia</p></figcaption></figure>
 
-
+### Vídeos de resumen
 
 {% embed url="https://www.youtube.com/watch?v=pTB0EiLXUC8" %}
 
 {% embed url="https://www.youtube.com/watch?v=m_MQYyJpIjg" %}
 
-{% embed url="https://www.youtube.com/watch?v=SiBw7os-_zI" %}
-
 ### Fuentes
 
-[Geeksforgeeks](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/) | [educative.io](https://www.educative.io/blog/object-oriented-programming) | [mdn](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming) | [codecademy](https://www.codecademy.com/resources/blog/object-oriented-programming/) | [dev.to](https://dev.to/bartzalewski/object-oriented-programming-in-javascript-with-examples-updated-2024-5ac4) 
+[Geeksforgeeks](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/) | [educative.io](https://www.educative.io/blog/object-oriented-programming) | [mdn](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented\_programming) | [codecademy](https://www.codecademy.com/resources/blog/object-oriented-programming/) | [dev.to](https://dev.to/bartzalewski/object-oriented-programming-in-javascript-with-examples-updated-2024-5ac4)
