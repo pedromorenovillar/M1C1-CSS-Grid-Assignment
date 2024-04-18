@@ -24,7 +24,7 @@ layout:
 
 Los bucles en programación son estructuras de control que nos permiten **repetir una acción varias veces si se cumple una condición**.
 
-<figure><img src=".gitbook/assets/bucle.svg" alt=""><figcaption><p>Diagrama básico de un bucle</p></figcaption></figure>
+<figure><img src=".gitbook/assets/bucle (1).svg" alt=""><figcaption><p>Diagrama básico de un bucle</p></figcaption></figure>
 
 Un ejemplo sencillo de la vida real: imaginemos que nos hemos quedado sin manzanas y vamos al la frutería. Tenemos la cesta de la compra en una mano necesitamos comprar 6 manzanas. Emplearíamos un bucle, es decir, una acción repetida varias veces hasta tener en la cesta el número de manzanas que necesitamos.
 
@@ -32,7 +32,7 @@ Un ejemplo sencillo de la vida real: imaginemos que nos hemos quedado sin manzan
 
 **Condición**: hasta que haya 6 manzanas
 
-<figure><img src="../.gitbook/assets/bucle_manzanas (3).png" alt=""><figcaption><p>Diagrama del bucle de ejemplo</p></figcaption></figure>
+<figure><img src=".gitbook/assets/bucle_manzanas.svg" alt=""><figcaption><p>Diagrama del bucle de ejemplo</p></figcaption></figure>
 
 ### Tipos de bucles
 

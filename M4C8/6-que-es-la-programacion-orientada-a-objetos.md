@@ -1,3 +1,23 @@
+---
+cover: >-
+  https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&cs=srgb&fm=jpg&ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwyfHxwcm9ncmFtbWluZ3xlbnwwfHx8fDE3MTM0MjQ4Mzh8MA&ixlib=rb-4.0.3&q=85
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: full
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # 💡 ¿Qué es la programación orientada a objetos?
 
 Las versiones antiguas de JavaScript carecían de componentes de programación orientada a objetos, como clases e instanciación. Sin embargo, las versiones modernas de JavaScript han implementado clases.
