@@ -20,36 +20,49 @@ layout:
 
 # 💡 ¿Qué es la programación orientada a objetos?
 
-Las versiones antiguas de JavaScript carecían de componentes de programación orientada a objetos, como clases e instanciación. Sin embargo, las versiones modernas de JavaScript han implementado clases.
 
-La Programación Orientada a Objetos (POO) implica definir clases y crear objetos basados en esas clases. Una clase es como un plano que define la estructura y el comportamiento de los objetos.
+### ¿Qué es?
 
-Ejemplo de una clase Usuario:
+La programación orientada a objetos (POO) es un paragdigma de programación que se centra en los objetos en lugar de en las funciones (programación funcional) o en secuencias lógicas (programación procedimental). La POO es el paradigma de programación más popular en el desarrollo de software moderno.
+
+La POO consiste en un sistema basado en una colección de objetos donde cada objeto contiene los datos y las funciones para utilizarlos, de tal forma que solo las funciones del objeto puedan utilizar dichos datos.
+
+### ¿Por qué se utiliza?
+
+La POO es el enfoque de programación más popular porque cuenta con una serie de características que proporcionan considerables ventajas al programar:
+
+  1. Es posible representar objetos complejos mediante estructuras sencillas que se pueden reproducir (clases).
+  2. Los objetos creados en un programa pueden emplearse en otro programa diferente.
+  3. El polimorfismo permite definir un comportamiento específico para las clases.
+  4. Es fácil descubrir los errores en el código, ya que las clases contienen toda la información.
+  5. Los datos están protegidos de acciones y eventos inesperados mediante encapsulación.
+
+### ¿Cómo se utiliza?
+
+En la programación orientada a objetos es importante comprender los conceptos de objeto y clase.
+
+### Objetos
+
+Los objetos en POO son representaciones de entidades del mundo real. Cuentan con atributos (los datos del objeto) y métodos (las acciones que realiza el objeto).
+
+En el siguiente ejemplo creamos un objeto llamado `Toby`. Tiene los atributos color y especie, y el método onomatopeya. A continuación, ejecutamos el método del objeto.
+
+#### Ejemplo
 
 ```javascript
-class Usuario {
-  constructor(nombreUsuario) {
-    this.nombreUsuario = nombreUsuario;
+let Toby = {
+  especie: 'perro',
+  color: 'marrón',
+  onomatopeya() {
+    console.log('¡guau!');
   }
-  
-  // Ejemplo de método
-  iniciarSesion() {
-    console.log(`${this.nombreUsuario} ha iniciado sesión.`);
-  }
-}
+};
+Toby.onomatopeya(); // "¡guau!"
 ```
 
-La `instanciación` es el proceso de crear objetos del mundo real basados en un plano de clase.
+#### Clases
 
-Ejemplo de instanciación:
-
-```javascript
-const usuario1 = new Usuario('Bob');
-const usuario2 = new Usuario('Sally');
-
-usuario1.iniciarSesion(); // Salida: Bob ha iniciado sesión.
-usuario2.iniciarSesion(); // Salida: Sally ha iniciado sesión.
-```
+Las clases son como un molde que define la estructura y el comportamiento de los objetos, y a partir de las cuales podemos crear (o instanciar) diferentes objetos con las mismas características.
 
 #### Cómo crear una clase
 
@@ -68,106 +81,203 @@ class name {
 **Ejemplo**
 
 ```javascript
-class Instructor {
-  constructor({ name }) {
-    this.name = name
+class Animal {
+  constructor(nombre, especie, color) {
+  // Ejemplo de atributos
+    this.nombre = nombre;
+    this.especie = especie;
+    this.color = color;
+  }
+  
+  // Ejemplo de método
+  onomatopeya(sonido) {
+    this.sonido = sonido;
+    console.log(`${this.nombre} hace ${this.sonido}.`);
   }
 }
 ```
 
 #### Cómo instanciar un objeto de una clase
 
-Para instanciar un objeto lo asignamos a una variable con la palabra clave `new`. Añadimos los atributos con el tipo de datos objeto (clave-valor).
+La `instanciación` es el proceso de crear objetos del mundo real basados en un plano de clase.
+
+Para instanciar un objeto lo asignamos a una variable con la palabra clave `new`. Añadimos los atributos entre paréntesis.
 
 **Sintaxis**
 
 ```javascript
-const name = new className({atributo: 'valor de atributo'})
+const name = new className(atributo)
 ```
 
-**Ejemplo**
+En el siguiente ejemplo creamos una clase llamada `Animal` con una serie de atributos (nombre, especie, color y sonido), y un método (onomatopeya). A continuación instanciamos dos objetos a partir de ella (Toby y Sultán) y accedemos al método `onomatopeya` del ambos.
 
 ```javascript
-const jon = new Instructor({ name: 'Jon Snow' });
-console.log(jon.name); // Output: Jon Snow
-```
-
-### Cómo añadir métodos de instancia a una clase en POO en JS
-
-Los métodos de instancia son **funciones** añadidas a las clases para definir el comportamiento o acciones de los objetos de una clase. Estos métodos pueden ejecutarse sobre una instancia específica de una clase y actúan sobre los datos almacenados en las instancias individuales (objetos) de la clase. Usos comunes:
-
-1. **Encapsulación**: Los métodos de instancia encapsulan el comportamiento relevante para una clase específica, lo que permite una estructura de código modular y organizada.
-2. **Acciones específicas del objeto**: Los métodos de instancia pueden realizar acciones u operaciones que son específicas para objetos individuales de la clase. Por ejemplo, una clase `Car` podría tener métodos como `start()` o `stop()` para controlar el motor del automóvil.
-3. **Acceso y modificación de atributos del objeto**: Los métodos de instancia tienen acceso a los atributos del objeto y pueden modificarlos según sea necesario. Esto permite una interacción controlada con los datos del objeto.
-4. **Implementación de lógica empresarial**: Los métodos de instancia a menudo contienen la lógica empresarial o reglas asociadas con una clase particular. Por ejemplo, una clase `BankAccount` podría tener métodos como `deposit()` y `withdraw()` para manejar transacciones mientras se aplican restricciones como requisitos de saldo mínimo.
-5. **Personalización de comportamiento**: Los métodos de instancia pueden ser redefinidos en subclases para personalizar el comportamiento heredado de una clase padre, proporcionando flexibilidad y extensibilidad en la jerarquía de clases.
-
-```javascript
-class Instructor {
-  constructor({ name, role = 'assistant' }) {
-    this.name = name;
-    this.role = role;
+class Animal {
+  constructor(nombre, especie, color) {
+  // Ejemplo de atributos
+    this.nombre = nombre;
+    this.especie = especie;
+    this.color = color;
   }
-
-  renderDetails() {
-    console.log(`${this.name}: ${this.role}`);
-  }
-}
-```
-
-```javascript
-const jon = new Instructor({ name: 'Jon Snow' });
-const brayden = new Instructor({ name: 'Brayden', role: 'teacher' });
-
-jon.renderDetails();
-brayden.renderDetails();
-```
-
-### Métodos estáticos en POO en JS
-
-Los métodos estáticos se ejecutan invocando a la clase y **no requieren de instancias**.
-
-```javascript
-// Definición de la clase Instructor
-class Instructor {
-  constructor({ name, role = "assistant" }) {
-    this.role = role;
-    this.name = name;
-  }
-
-  // Método de instancia para visualizar detalles
-  renderDetails() {
-    console.log(`${this.name} - ${this.role}`);
-  }
-
-  // Método estático básico
-  static helloWorld() {
-    console.log('Hi there');
-  }
-
-  // Método estático para determinar si un instructor puede enseñar
-  static canTeach(instructor) {
-    return (instructor.role === 'classroom');
+  
+  // Ejemplo de método
+  onomatopeya(sonido) {
+    this.sonido = sonido;
+    console.log(`${this.nombre} hace ${this.sonido}.`);
   }
 }
 
-// Creación de instancias de Instructor
-let juniorInstructor = new Instructor({ 'name' : 'Brian' });
-let seniorInstructor = new Instructor({ 'name' : 'Alice', "role" : "classroom" });
+let Toby = new Animal('Toby', 'perro', 'marrón');
+Toby.onomatopeya('guau'); // "Toby hace guau."
 
-// Llamadas a métodos de instancia para visualizar detalles
-juniorInstructor.renderDetails(); // "Brian - assistant"
-seniorInstructor.renderDetails(); // "Alice - classroom"
-
-// Llamada a método estático helloWorld
-Instructor.helloWorld(); // "Hi there"
-
-// Comprobación de si los instructores pueden enseñar
-console.log(`${juniorInstructor.name} can teach: ${Instructor.canTeach(juniorInstructor)}`); // "Brian can teach: false"
-console.log(`${seniorInstructor.name} can teach: ${Instructor.canTeach(seniorInstructor)}`); // "Alice can teach: true"
+let Sultán = new Animal('Sultán', 'gato', 'gris');
+Sultán.onomatopeya('miau'); // "Sultán hace miau."
 ```
 
-En el último ejemplo, los nombres de los instructores hacen una llamada al objeto, mientras que el método estático `canTeach` solo hace una llamada a la clase.
+### Características principales
+
+Las principales características de la programación orientada a objetos son las siguientes:
+
+#### Encapsulación
+
+La encapsulación significa que la representación interna de un objeto está oculta del exterior.
+
+En el siguiente ejemplo, el atributo `_marca` está encapsulado en la clase Coche, es decir, solo puede accederse a él mediante el método `get` y modificarse con el método `set`.
+
+### Ejemplo
+
+```javascript
+class Coche {
+  constructor(marca) {
+    this._marca = marca;
+  }
+
+  get marca() {
+    return this._marca;
+  }
+
+  set marca(nuevaMarca) {
+    this._marca = nuevaMarca;
+  }
+}
+
+let miCoche = new Coche('Seat');
+console.log(miCoche.marca); // Seat
+miCoche.marca = 'Audi';
+console.log(miCoche.marca); // Audi
+```
+
+#### Herencia
+
+La herencia significa que una clase extiende sus datos y comprotamiento a otra. Para utilizar la herencia en JavaScript, al declarar una clase dependiente de otra usamos la palabra clave `extends` y el nombre de la clase original.
+
+En el siguiente ejemplo, la clase `Perro` hereda los atributos nombre y especie de la clase `Animal`, aunque cuenta con un método `onomatopeya` propio.
+
+# TODO añadir esquema
+
+### Ejemplo
+
+```javascript
+class Animal {
+  constructor(nombre, especie) {
+    this.nombre = nombre;
+    this.especie = especie;
+  }
+  
+  onomatopeya(sonido) {
+    this.sonido = sonido;
+    console.log(`${this.nombre} hace ${this.sonido}.`);
+  }
+}
+
+class Perro extends Animal {
+  
+  onomatopeya(sonido) {
+    this.sonido = sonido;
+    console.log(`${this.nombre} es un ${this.especie} que hace ${this.sonido}.`);
+  }
+}
+
+
+let Toby = new Perro('Toby', 'perro');
+Toby.onomatopeya('guau'); // "Toby es un perro que hace guau."
+```
+
+#### Polimorfismo
+
+El polimorfismo nos permite que métodos, objetos u operadores con el mismo nombre se ejecuten en muchos objetos y clases.
+
+En el siguiente ejemplo, la clase `Animal` tiene un constructor con los atributos especie y sonido, y un método llamado `onomatopeya`. Las subclases `Perro` y `Gato` heredan propiedades de `Animal` con la palabra clave `extends`, aunque cuentan con sus propios métodos `onomatopeya`. Por último, tenemos la función `ruido`, que toma como argumento un animal y ejecuta su función `onomatopeya` del animal correspondiente, sobrescribiendo la de `Animal`.
+
+# TODO añadir esquema
+
+### Ejemplo
+
+```javascript
+class Animal {
+  constructor(especie, sonido) {
+    this.especie = especie;
+    this.sonido = sonido;
+  }
+  onomatopeya() {
+    console.log(`Este ${this.especie} hace ${this.sonido}.`);
+  }
+}
+
+class Perro extends Animal {
+  especie = 'perro';
+  onomatopeya() {
+    console.log(`Este ${this.especie} hace guau.`);
+  }
+}
+
+class Gato extends Animal {
+  especie = 'gato';
+  onomatopeya() {
+    console.log(`Este ${this.especie} hace miau.`);
+  }
+}
+
+function ruido(animal) {
+  animal.onomatopeya();
+}
+
+ruido(new Perro());
+ruido(new Gato());
+```
+
+#### Abstracción
+
+La abstracción es un proceso de POO donde se ocultan los detalles de implementación complejos y solo se muestran las características esenciales de un objeto.
+
+Un ejemplo del mundo real sería conducir una moto: para que la moto gire a la izquierda, el conductor tiene que girar el manillar a la izquierda, no preocuparse por cómo se mueven el eje y los piñones de la moto.
+
+En el siguiente ejemplo, la clase `Vehículo` es una clase genérica con dos métodos: `arrancar` y `parar`. La clase `Moto` es una subclase de la clase `Vehículo` y supone un nivel de abstracción más específico con métodos ajustados a ese tipo de vehículo.
+
+### Ejemplo
+
+```javascript
+class Vehículo {
+  arrancar() {
+    console.log('El motor del vehículo ha arrancado');
+  }
+  parar() {
+    console.log('El motor del vehículo ha parado');
+  }
+}
+
+class Moto extends Vehículo {
+  arrancar() {
+    console.log('La moto se ha arrancado');
+  }
+  parar() {
+    console.log('La moto se ha detenido');
+  }
+}
+
+let miMoto = new Moto();
+miMoto.arrancar(); // "La moto se ha arrancado"
+```
 
 ### Vídeo de resumen
 
@@ -179,3 +289,6 @@ En el último ejemplo, los nombres de los instructores hacen una llamada al obje
 
 {% embed url="https://www.youtube.com/watch?v=SiBw7os-_zI" %}
 
+### Fuentes
+
+[Geeksforgeeks](https://www.geeksforgeeks.org/introduction-of-object-oriented-programming/) | [educative.io](https://www.educative.io/blog/object-oriented-programming) | [mdn](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_programming) | [codecademy](https://www.codecademy.com/resources/blog/object-oriented-programming/) | [dev.to](https://dev.to/bartzalewski/object-oriented-programming-in-javascript-with-examples-updated-2024-5ac4) 
