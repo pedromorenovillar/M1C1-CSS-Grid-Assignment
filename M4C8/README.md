@@ -1,3 +1,17 @@
+---
+layout:
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # 🗂️ Índice
 
 * [➿ ¿Qué tipo de bucles hay en JavaScript?](1-que-tipo-de-bucles-hay-en-javascript.md)
