@@ -111,7 +111,7 @@ const nombreUsuario = 'Marco Llorente';
 
 
 
-<figure><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?crop=entropy&#x26;cs=srgb&#x26;fm=jpg&#x26;ixid=M3wxOTcwMjR8MHwxfHNlYXJjaHwxfHx2YXJpZXR5fGVufDB8fHx8MTcxMzI1ODg4M3ww&#x26;ixlib=rb-4.0.3&#x26;q=85" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/cactus.jpg" alt="" width="320"><figcaption></figcaption></figure>
 
 ### Diferencias entre `var`, `let` y `const`
 
