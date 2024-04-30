@@ -15,8 +15,10 @@ let preparationList = [];
 let currentMenu = [];
 
 let entreeChoice, mainChoice, sideChoice1, sideChoice2
+let entreePrice, mainPrice, side1Price, side2Price
 
 let preparationChoice = 'none';
+let preparationPrice = 0;
 
 let bill = 0;
 
@@ -27,8 +29,8 @@ const drinksHeader = 'DRINK';
 
 let sideOrDrink = '';
 
-let date = new Date();
-let hours = date.getHours();
+let hours
+let visitTime
 let mealTime
 
 class MenuError extends Error {
@@ -39,6 +41,20 @@ class MenuError extends Error {
         }
     }
 
+function visitTimeCheck(time) {
+time = parseInt(time, 10);
+if (isNaN(time) || time < 0 || time > 23) {
+    alert(`Please enter a number between 0 and 23.`)
+    welcomeClients();
+} else {
+    hours = time;
+    setmealTime(hours);
+    menuBuilder(mealTime, dishes);
+    showMenu(mealTime);
+}
+}
+      
+function setmealTime(hours) {
 try {
 if ((hours >= 17 && hours <= 23) || (hours >= 0 && hours <= 5)) {
     mealTime = 'Dinner';
@@ -48,7 +64,8 @@ if ((hours >= 17 && hours <= 23) || (hours >= 0 && hours <= 5)) {
     mealTime = 'Lunch';
 }
 } catch(e) {
-  throw new MenuError('MenuError', 'Error with the hours setting block.', e);
+throw new MenuError('MenuError', 'Error with the hours setting.', e);
+}
 }
 
 const dishes = [
@@ -97,28 +114,32 @@ try {
 function menuBuilder(meal, dishes) {
   for (const dish of dishes) {
     if (dish.meal === meal) {
+      const dishLowerCase = {
+        ...dish,
+        name: dish.name.toLowerCase()
+      };
       if (dish.list === 'entree') {
-        currentMenu.push(dish);
+        currentMenu.push(dishLowerCase);
         entrees.push(`${dish.name} (${dish.price} €)`);
         entreeList.push(`${dish.name}`, `${dish.alt}`);
         entreeNames = entreeList.map(name => name.toLowerCase());
       } 
       if (dish.list === 'main') {
-        currentMenu.push(dish);
+        currentMenu.push(dishLowerCase);
         mains.push(`${dish.name} (${dish.price} €)`);
         mainNames.push(`${dish.name}`, `${dish.alt}`);
         mainList.push(`${dish.name}`, `${dish.alt}`);
         mainNames = mainList.map(name => name.toLowerCase());
       }
       if (dish.list === 'preparation') {
-        currentMenu.push(dish);
+        currentMenu.push(dishLowerCase);
         preparation.push(`${dish.name} (${dish.price} €)`);
         preparationNames.push(`${dish.name}`, `${dish.alt}`);
         preparationList.push(`${dish.name}`, `${dish.alt}`);
         preparationNames = preparationList.map(name => name.toLowerCase());
       }
       if (dish.list === 'side') {
-        currentMenu.push(dish);
+        currentMenu.push(dishLowerCase);
         sides.push(`${dish.name} (${dish.price} €)`);
         sideNames.push(`${dish.name}`, `${dish.alt}`);
         sideList.push(`${dish.name}`, `${dish.alt}`);
@@ -132,6 +153,7 @@ function menuBuilder(meal, dishes) {
   throw new MenuError('MenuError', 'Error with the menuBuilder function.', e);
 }
 menuBuilder(mealTime, dishes);
+
 
 try {
 function showMenu (mealTime) {
@@ -182,30 +204,27 @@ for (i = 0; i < menu.length; i++) {
   throw new MenuError('MenuError', 'Error with the dishFinder function.', e);
 }
 
-try {
-function welcomeClients (mealTime) {
-  alert(`Welcome to the Bottega DevCamp Diner!🍴
-I'll bring you our ${mealTime.toLowerCase()} menu right away.
-Have look and let me know what you would like to order.
-`)
+function welcomeClients () {
+visitTime = prompt(`Welcome to the Bottega DevCamp Diner!🍴
 
-showMenu (mealTime);
-}
-} catch (e) {
-  throw new MenuError('MenuError', 'Error with the welcomeClients function.', e);
-}
-welcomeClients(mealTime);
+Please enter the hour of the day for your visit
+and I'll show you the corresponding menu.
 
+                ~~ Our Meal Times ~~
+(Breakfast 6-11 | Lunch 12-16 | Dinner 17-5)`)
+    visitTimeCheck(visitTime);
+}
+welcomeClients()
 
 function orderEntree() {
 try {
 entreeChoice = prompt(`What would you like to order as entree?
-${entrees.join(' | ')}`, `${entreeList[0]}`);
-entreeChoice = choiceChecker(entreeChoice, entreeNames);
+${entrees.join(' | ')}`);
+[entreeChoice, entreePrice] = choiceChecker(entreeChoice, entreeNames);
   if (entreeChoice === 'none') {
     let confirmation = confirm(`Click OK to enter the dish again, CANCEL to skip this dish.`)
       if (confirmation === true) {
-          orderEntree();
+          orderEntree();        
           } else {
             alert('Understood, you will take no entree.');
           }
@@ -219,8 +238,8 @@ orderEntree();
 function orderMain() {
 try {
 mainChoice = prompt(`What would you like to order as main dish?
-${mains.join(' | ')}`, `${mainList[0]}`);
-mainChoice = choiceChecker(mainChoice, mainNames);
+${mains.join(' | ')}`);
+[mainChoice, mainPrice] = choiceChecker(mainChoice, mainNames);
 if (mainChoice === 'none') {
     let confirmation = confirm(`Click OK to enter the dish again, CANCEL to skip this dish.`)
       if (confirmation === true) {
@@ -238,9 +257,9 @@ orderMain();
 if (mainChoice !== 'none') {
 function orderPreparation() {
 try {
-preparationChoice = prompt(`How would you like us to prepare your ${mainChoice.toLowerCase()}?
-${preparation.join(' | ')}`, `${preparationList[0]}`);
-preparationChoice = choiceChecker(preparationChoice, preparationNames);
+preparationChoice = prompt(`How would you like us to prepare your ${mainChoice}?
+${preparation.join(' | ')}`);
+[preparationChoice, preparationPrice] = choiceChecker(preparationChoice, preparationNames);
 if (preparationChoice === 'none') {
     let confirmation = confirm(`Click OK to enter the dish again, CANCEL to skip this dish.`)
       if (confirmation === true) {
@@ -259,8 +278,8 @@ orderPreparation();
 function orderSide1() {
 try {
 sideChoice1 = prompt(`What would you like to order as first ${sideOrDrink}?
-${sides.join(' | ')}`, `${sideList[0]}`);
-sideChoice1 = choiceChecker(sideChoice1, sideNames);
+${sides.join(' | ')}`);
+[sideChoice1, side1Price] = choiceChecker(sideChoice1, sideNames);
 if (sideChoice1 === 'none') {
     let confirmation = confirm(`Click OK to enter the ${sideOrDrink} again, CANCEL to skip this ${sideOrDrink}.`)
       if (confirmation === true) {
@@ -278,8 +297,8 @@ orderSide1();
 function orderSide2() {
 try {
 sideChoice2 = prompt(`What would you like to order as second ${sideOrDrink}?
-${sides.join(' | ')}`, `${sideList[2]}`);
-sideChoice2 = choiceChecker(sideChoice2, sideNames);
+${sides.join(' | ')}`);
+[sideChoice2, side2Price] = choiceChecker(sideChoice2, sideNames);
 if (sideChoice2 === 'none') {
     let confirmation = confirm(`Click OK to enter the ${sideOrDrink} again, CANCEL to skip this ${sideOrDrink}.`)
       if (confirmation === true) {
@@ -296,30 +315,31 @@ orderSide2();
 
 try {
 confirm(`Ok, so summing up you will be having:
-${entreeHeader}: ${entreeChoice.toLowerCase()}
-${mainsHeader}: ${mainChoice.toLowerCase()} (${preparationChoice.toLowerCase()})
-${sideOrDrink.toUpperCase()}: ${sideChoice1.toLowerCase()} and ${sideChoice2.toLowerCase()}.
-The total would be ${bill} €. Enjoy your meal!`);
+${entreeHeader}: ${entreeChoice} (${entreePrice} €)
+${mainsHeader}: ${mainChoice} (${mainPrice} €) [${preparationChoice} (${preparationPrice} €)]
+${sideOrDrink.toUpperCase()} 1: ${sideChoice1} (${side1Price} €)
+${sideOrDrink.toUpperCase()} 2: ${sideChoice2} (${side2Price} €)
+The total would be ${bill} €.
+Enjoy your meal!`);
 } catch(e) {
   throw new MenuError('MenuError', 'Error with the menu final confirmation prompt.', e);
 }
 
 
-function choiceChecker(choice, list) {
-  if (choice === null || choice.trim() === '') {
-    alert("You did not enter anything.");
+function choiceChecker (choice, list) {
+  choice = choice.toLowerCase();
+  if (choice === '' || choice === null) {
+    confirm('You did not enter anything.');
     return 'none';
-  } else {
-    if (list.includes(choice.toLowerCase())) {
-      let [choicePrice, choiceComment] = dishFinder(choice, currentMenu);
-      confirm(`So ${choice.toLowerCase()}, right?\n${choiceComment}\nThat would be ${choicePrice} €.`);
+  } else if (list.includes(choice)) {
+  let [choicePrice, choiceComment] = dishFinder(choice, currentMenu);
+confirm(`So ${choice}, right?\n${choiceComment}\nThat would be ${choicePrice} €.`);
       bill += choicePrice;
-      return choice;
+      return [choice, choicePrice];
     } else {
       alert("We do not have that on the menu.");
       return 'none';
     }
-  }
 }
 
 try {
